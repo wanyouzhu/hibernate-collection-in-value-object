@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field">
+    <class name="com.example.puzzle.hibernatecollectioninvalueobject.Entity" table="entities">
+        <id name="id" column="id"/>
+        <component name="valueObject">
+            <set name="values" table="entity_values">
+                <key column="entity_id"/>
+                <element column="value" type="java.lang.String"/>
+            </set>
+        </component>
+    </class>
+</hibernate-mapping>
