@@ -7,10 +7,17 @@
     <class name="com.example.puzzle.hibernatecollectioninvalueobject.Entity" table="entities">
         <id name="id" column="id"/>
         <component name="valueObject">
+            <property name="simpleValue" column="simple_value"/>
+            <one-to-one name="anotherEntity" foreign-key="another_entity_id" cascade="all-delete-orphan"/>
             <set name="values" table="entity_values">
                 <key column="entity_id"/>
                 <element column="value" type="java.lang.String"/>
             </set>
         </component>
+    </class>
+
+    <class name="com.example.puzzle.hibernatecollectioninvalueobject.AnotherEntity" table="other_entities">
+        <id name="id" column="id"/>
+        <property name="name" column="name"/>
     </class>
 </hibernate-mapping>

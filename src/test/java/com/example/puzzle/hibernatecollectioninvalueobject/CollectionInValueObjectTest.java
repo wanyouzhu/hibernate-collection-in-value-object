@@ -20,7 +20,7 @@ public class CollectionInValueObjectTest {
 
     @Test
     public void should_persist_entity_with_value_objects_contain_collections() {
-        Entity entity = new Entity("id", new ValueObject("a", "b"));
+        Entity entity = new Entity("id", new ValueObject("simple", new AnotherEntity("id2", "another-one"), "a", "b"));
         entityRepository.save(entity);
         assertEquals(entity, entityManager.find(Entity.class, "id"));
     }
